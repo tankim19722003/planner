@@ -146,10 +146,6 @@ h2 { margin-bottom: 0; font-size: clamp(2rem, 4vw, 3.6rem); letter-spacing: -0.0
 .restore-action { color: var(--forest); background: var(--acid); }
 .import-action { align-self: stretch; }
 
-.footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 24px; padding: 38px 0; border-top: 1px solid var(--line); }
-.footer p { margin-bottom: 0; color: var(--muted); }
-.footer div { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 22px; }
-.footer a { font-weight: 600; text-underline-offset: 5px; }
 .toast { position: fixed; right: 24px; bottom: 24px; z-index: 20; max-width: min(380px, calc(100% - 48px)); margin: 0; padding: 12px 16px; border-radius: 12px; color: var(--paper); background: var(--forest); box-shadow: 0 16px 40px rgba(23, 35, 31, 0.25); opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity 180ms ease, transform 180ms ease; }
 .toast.show { opacity: 1; transform: translateY(0); }
 button:focus-visible, a:focus-visible, label:focus-visible, input:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }
@@ -200,8 +196,6 @@ button:focus-visible, a:focus-visible, label:focus-visible, input:focus-visible 
   .manage-grid { grid-template-columns: 1fr; margin-top: 38px; }
   .manage-card { min-height: 300px; padding: 24px; }
   .manage-card > svg { margin-bottom: 40px; }
-  .footer { align-items: flex-start; flex-direction: column; }
-  .footer div { justify-content: flex-start; }
 }
 
 @media (max-width: 420px) {
