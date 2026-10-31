@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#13251f" />
+    <title>Cả tuần · Kế hoạch của cháu</title>
+    <meta name="description" content="Tổng quan tiến độ và công việc trong tuần hiện tại." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="week">
+    <main class="page-shell">
+      <nav class="topbar" aria-label="Điều hướng chính">
+        <a class="brand" href="index.html" aria-label="Kế hoạch của cháu">K.</a>
+        <div class="nav-links">
+          <a href="index.html">Hôm nay</a>
+          <a class="active" href="week.html" aria-current="page">Cả tuần</a>
+        </div>
+        <div class="nav-actions">
+          <button id="restore-plan" class="restore-button" type="button">Khôi phục mẫu</button>
+          <label class="import-button" for="plan-file">Import JSON</label>
+        </div>
+        <input id="plan-file" class="visually-hidden" type="file" accept="application/json,.json" />
+      </nav>
+
+      <section class="stats-grid" aria-label="Thống kê tuần">
+        <article class="stat-card stat-primary">
+          <div id="week-progress-ring" class="week-progress-ring">
+            <strong id="week-percent">0%</strong>
+          </div>
+          <div class="stat-copy">
+            <span>Tiến độ tuần này</span>
+            <p>Mỗi dấu check là một bước tiến nhỏ.</p>
+          </div>
+        </article>
+        <article class="stat-card stat-metric">
+          <span>Đã hoàn thành</span>
+          <strong id="week-done">0</strong>
+          <small>việc trong tuần</small>
+        </article>
+        <article class="stat-card stat-metric">
+          <span>Đang chờ</span>
+          <strong id="week-left">0</strong>
+          <small>việc còn lại</small>
+        </article>
+      </section>
+
+      <section class="week-overview" aria-labelledby="week-heading">
+        <div class="section-heading week-heading">
+          <div>
+            <p class="kicker">Tổng quan</p>
+            <h2 id="week-heading">Từng ngày trong tuần</h2>
+          </div>
+          <button id="reset-all-data" class="danger-button" type="button">Xóa toàn bộ dữ liệu</button>
+        </div>
+        <div id="week-grid" class="week-grid"></div>
+      </section>
+
+      <p id="import-status" class="toast" role="status" aria-live="polite"></p>
+    </main>
+  </body>
+</html>

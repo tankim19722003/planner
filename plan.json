@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "title": "Hôm nay",
+  "schedule": {
+    "monday": [
+      { "id": "morning", "time": "04:30–05:45", "task": "PHP: đọc codebase, hiểu luồng request" },
+      { "id": "work", "time": "08:15–17:00", "task": "Đi làm" },
+      { "id": "evening", "time": "Buổi tối", "task": "Nấu ăn, chuẩn bị cơm ngày mai" }
+    ],
+    "tuesday": [
+      { "id": "morning", "time": "04:30–05:45", "task": "Tiếng Anh" },
+      { "id": "work", "time": "08:15–17:00", "task": "Đi làm" },
+      { "id": "evening", "time": "Buổi tối", "task": "Nấu ăn, học tiếng Trung 20 phút" }
+    ],
+    "wednesday": [
+      { "id": "morning", "time": "04:30–05:45", "task": "PHP: SQL, debugging, testing" },
+      { "id": "work", "time": "08:15–17:00", "task": "Đi làm" },
+      { "id": "evening", "time": "Buổi tối", "task": "Nấu ăn, nghỉ ngơi" }
+    ],
+    "thursday": [
+      { "id": "morning", "time": "04:30–05:45", "task": "Tiếng Anh kỹ thuật" },
+      { "id": "work", "time": "08:15–17:00", "task": "Đi làm" },
+      { "id": "evening", "time": "Buổi tối", "task": "Nấu ăn, học tiếng Trung 20 phút" }
+    ],
+    "friday": [
+      { "id": "morning", "time": "04:30–05:45", "task": "PHP: tổng kết kiến thức trong tuần" },
+      { "id": "work", "time": "08:15–17:00", "task": "Đi làm" },
+      { "id": "evening", "time": "Buổi tối", "task": "Nghỉ ngơi" }
+    ],
+    "saturday": [
+      { "id": "morning", "time": "04:30–05:45", "task": "PHP/backend chuyên sâu 2 giờ" },
+      { "id": "daytime", "time": "08:15–17:00", "task": "Tài chính cá nhân 1 giờ" },
+      { "id": "evening", "time": "Buổi tối", "task": "Nghỉ ngơi, gặp bạn bè" }
+    ],
+    "sunday": [
+      { "id": "morning", "time": "04:30–05:45", "task": "Tiếng Trung 1 giờ, tiếng Anh 45 phút" },
+      { "id": "daytime", "time": "08:15–17:00", "task": "Mua và sơ chế thực phẩm" },
+      { "id": "evening", "time": "Buổi tối", "task": "Tổng kết, chuẩn bị tuần mới" }
+    ]
+  }
+}

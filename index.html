@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#13251f" />
+    <title>Hôm nay · Kế hoạch của cháu</title>
+    <meta name="description" content="Xem và hoàn thành kế hoạch của ngày hôm nay." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="today">
+    <main class="page-shell">
+      <nav class="topbar" aria-label="Điều hướng chính">
+        <a class="brand" href="index.html" aria-label="Kế hoạch của cháu">K.</a>
+        <div class="nav-links">
+          <a class="active" href="index.html" aria-current="page">Hôm nay</a>
+          <a href="week.html">Cả tuần</a>
+        </div>
+        <div class="nav-actions">
+          <button id="restore-plan" class="restore-button" type="button">Khôi phục mẫu</button>
+          <label class="import-button" for="plan-file">Import JSON</label>
+        </div>
+        <input id="plan-file" class="visually-hidden" type="file" accept="application/json,.json" />
+      </nav>
+
+      <section class="today-work" aria-labelledby="tasks-heading">
+        <div class="section-heading">
+          <div>
+            <p id="today-date" class="kicker"></p>
+            <h2 id="tasks-heading">Kế hoạch trong ngày</h2>
+          </div>
+          <div class="compact-progress" aria-label="Tiến độ hôm nay">
+            <strong id="progress-percent">0%</strong>
+            <span id="progress-text">0/0 việc hoàn thành</span>
+            <button id="reset-day" class="quiet-button" type="button">Bỏ chọn</button>
+          </div>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div id="progress-bar"></div></div>
+        <div id="tasks" class="task-list"></div>
+        <p id="empty-state" class="empty" hidden>Hôm nay chưa có việc nào.</p>
+      </section>
+
+      <footer class="footer">
+        <p>Tiến độ chỉ được lưu trên trình duyệt này.</p>
+        <div>
+          <a href="week.html">Xem tổng quan tuần</a>
+        </div>
+      </footer>
+      <p id="import-status" class="toast" role="status" aria-live="polite"></p>
+    </main>
+  </body>
+</html>
