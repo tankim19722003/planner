@@ -4,6 +4,7 @@ Website tĩnh gồm hai trang:
 
 - `index.html`: kế hoạch đúng ngày hiện tại theo múi giờ Việt Nam.
 - `week.html`: tổng quan thứ Hai–Chủ Nhật, trạng thái từng việc và tỷ lệ hoàn thành.
+- `manage.html`: khôi phục kế hoạch mẫu hoặc import file JSON.
 
 Checkbox và file JSON được import chỉ lưu trong `localStorage` của trình duyệt.
 

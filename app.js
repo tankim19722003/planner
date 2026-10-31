@@ -130,7 +130,6 @@ function renderToday() {
   const done = readDone();
   const tasks = document.querySelector("#tasks");
 
-  document.querySelector("#today-date").textContent = `${DAY_NAMES[today.day]} · ${date.long}`;
   tasks.replaceChildren();
   document.querySelector("#empty-state").hidden = items.length > 0;
 
@@ -158,11 +157,6 @@ function renderToday() {
     tasks.append(label);
   });
 
-  const completed = items.filter(({ id }) => done[`${date.key}:${id}`]).length;
-  const percent = items.length ? Math.round((completed / items.length) * 100) : 0;
-  document.querySelector("#progress-percent").textContent = `${percent}%`;
-  document.querySelector("#progress-text").textContent = `${completed}/${items.length} việc hoàn thành`;
-  document.querySelector("#progress-bar").style.width = `${percent}%`;
 }
 
 function renderWeek() {
@@ -228,7 +222,7 @@ function renderWeek() {
 
 function render() {
   if (document.body.dataset.page === "week") renderWeek();
-  else renderToday();
+  else if (document.body.dataset.page === "today") renderToday();
   animatePage();
 }
 
@@ -236,14 +230,14 @@ function animatePage() {
   if (!window.gsap || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   gsap.registerPlugin(window.ScrollTrigger);
   gsap.from(".topbar", { y: -24, opacity: 0, duration: 0.7, ease: "power3.out" });
-  gsap.from(".compact-progress, .stat-card", { y: 32, opacity: 0, stagger: 0.1, duration: 0.7, delay: 0.28, ease: "power3.out" });
+  gsap.from(".stat-card, .manage-card", { y: 32, opacity: 0, stagger: 0.1, duration: 0.7, delay: 0.28, ease: "power3.out" });
   const trigger = document.querySelector(".task-list, .week-grid");
   if (trigger) {
     gsap.from(".task, .day-card", { y: 54, opacity: 0, stagger: 0.07, duration: 0.7, ease: "power2.out", scrollTrigger: { trigger, start: "top 88%" } });
   }
 }
 
-document.querySelector("#plan-file").addEventListener("change", async (event) => {
+document.querySelector("#plan-file")?.addEventListener("change", async (event) => {
   const [file] = event.target.files;
   if (!file) return;
   try {
@@ -264,15 +258,6 @@ document.querySelector("#restore-plan")?.addEventListener("click", () => {
   plan = defaultPlan;
   render();
   showStatus("Đã khôi phục kế hoạch mẫu.");
-});
-
-document.querySelector("#reset-day")?.addEventListener("click", () => {
-  const today = zonedToday();
-  const date = calendarDay();
-  const done = readDone();
-  for (const item of plan.schedule[today.day]) delete done[`${date.key}:${item.id}`];
-  saveDone(done);
-  renderToday();
 });
 
 document.querySelector("#reset-all-data")?.addEventListener("click", () => {
